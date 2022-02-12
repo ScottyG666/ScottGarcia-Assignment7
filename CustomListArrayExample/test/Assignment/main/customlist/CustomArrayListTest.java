@@ -3,6 +3,7 @@ package Assignment.main.customlist;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 class CustomArrayListTest {
 
@@ -73,6 +74,19 @@ class CustomArrayListTest {
 			}
 		}
 		
+		
+	}
+	
+	@Test
+	void adding_an_index_thats_out_of_bounds_from_array () {
+	
+		CustomList<Integer> sut = new CustomArrayList<>();
+		 for (int i = 0; i < 500; i++) {
+			 sut.add(i);
+		 }
+		 
+		 
+		 assertThrows(IndexOutOfBoundsException.class, () -> sut.add(5000, 25));
 		
 	}
 

@@ -43,8 +43,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 			size++;
 			return true;
 
+		}  else if (index < 0 || index > size ) {
+			throw new IndexOutOfBoundsException("Index " + index + " out of bounds for this instantiation of the Array");
 		} else {
 			return false;
+		
 		}
 
 	}
