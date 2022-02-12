@@ -78,7 +78,7 @@ class CustomArrayListTest {
 	}
 	
 	@Test
-	void adding_an_index_thats_out_of_bounds_from_array () {
+	void should_throw_index_out_of_bounds_on_all_tests () {
 	
 		CustomList<Integer> sut = new CustomArrayList<>();
 		 for (int i = 0; i < 500; i++) {
@@ -88,6 +88,14 @@ class CustomArrayListTest {
 		 
 		 assertThrows(IndexOutOfBoundsException.class, () -> sut.add(5000, 25));
 		
+		 assertThrows(IndexOutOfBoundsException.class,() -> sut.get(506));
+		 assertThrows(IndexOutOfBoundsException.class,() -> sut.remove(506));
+		 
+		 sut.remove(-1);
+		 
+		 
+		 
 	}
+	
 
 }

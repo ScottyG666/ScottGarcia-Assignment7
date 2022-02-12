@@ -62,14 +62,24 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException {
-		return (T) items[index];
+		
+		if (index < 0 || index > size ) {
+			throw new IndexOutOfBoundsException("Index " + index + " out of bounds for this instantiation of the Array");
+		} else {
+			
+			return (T) items[index];
+		}
+		
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 
-		if (index <= size) {
+		
+		if (index < 0 || index > size ) {
+			throw new IndexOutOfBoundsException("Index " + index + " out of bounds for this instantiation of the Array");
+		}else if (index <= size) {
 			T itemToRemove = (T) items[index];
 
 			size--;
